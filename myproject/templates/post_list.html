@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+{% include "head.html" %}
+
+<body>
+    <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  mx-auto ">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'inicio' %}"><b>Inicio</b> <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nuevo_post' %}"><b>Nueva Publicación</b></a>   
+                </li>
+                
+                 <li class="nav-item">
+                  <a class="nav-link" href="#footer"><b>Contacto</b></a>
+                </li>
+                {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href={% url 'perfil' user.id %}> <b>@{{user.username}}</b></a>               
+              </li>
+                </ul>  
+                <div class="user_option">
+                  <a href="" class="user_link" >  <!--  -->
+                <a class="btn btn-orange" href="{% url 'logout' %}" style="color:white"><b>Cerrar Sesión</b></a>
+                {% else %}
+                <div class="user_option">
+                  <a href="" class="user_link" >  <!--  -->
+                <a class="btn btn-orange" href="{% url 'login' %}" style="color:white"><b>Login</b></a>
+                {% endif %}
+            </div>
+       </div>    
+    </header>
+    <!-- Side widgets-->
+    <div class="col-lg-4" style="margin-left: 60%">
+        <!-- Search widget-->
+        <div class="card mb-4" style="background-color:transparent; margin-left: 100px; border-color:transparent">
+            <div class="card-header" style="background-color:transparent; font-family:Arial, Helvetica, sans-serif"><b>Búsqueda</b></div>
+            <div class="card-body" style="background-color:transparent">
+                <!--form method="get"-->
+                  <div class="input-group">
+                    <form method="get">
+                      <div id="custom-search-input">
+                    <input class="form-control" name="buscar" type="text" placeholder="Buscar..." value="request.GET.buscar" style="background-color:rgba(252, 216, 170, 0.514);border-style:hidden; border-color:rgb(92, 90, 90)"/>
+                    <button class="btn btn-primary" id="button-search" type="submit" style="background-color: rgb(1, 117, 226); border-color: transparent">Buscar</button>
+                  </form>
+                </div>
+                  </div>
+                <!--/form-->
+            </div>
+        </div>
+    </div>
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% for i in posts %}
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <a href={% url 'post' id=i.id %}> <h1 class="fw-bolder mb-1"; style= "color:rgb(0, 183, 255) ;font-family:Georgia, 'Times New Roman', Times, serif">{{i.title}}</h1> </a>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted on {{i.created_date}} by {{i.author}}</div>
+                            <!-- Post categories-->
+                            <!--a class="badge bg-secondary text-decoration-none link-light" href="#!">NOTICIA</a-->
+                            
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img class="img-fluid rounded" src="{{i.imagen.url}}" alt="" />
+                        </figure>
+                        <!-- Post content-->
+                        <section class="mb-5"; style="color:black; font-family:Modern No.20">
+                            <p class="fs-5 mb-4"> {{i.text | safe }} </p>
+                        </section>
+                    </article>
+                    {% endfor %}
+                    <!-- Comments section-->
+                </div>
+                    <section class="mb-5">
+                        
+                
+                    </section>
+                </div>
+            </div>
+        </div>
+
+{% include "scripts.html" %}
+{% include "footer.html" %}
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>

@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+{% include "head.html" %}
+
+<body>
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'images/fondo.png' %}" alt="">
+    </div>
+
+{% include "header.html" %}
+
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row; row d-flex justify-content-end">
+                <div class="col-md-7 col-lg-8 ">
+                  <div class="detail-box">
+                    <h1 style="color:rgb(10, 105, 230); font-family:'Rockwell'">
+                      Objetivos sostenibles para el 2030
+                    </h1>
+                    <p style="color:rgb(39, 38, 38); font-family:Modern No.20; font-size: 18px">
+                      <b>En 2015, la ONU aprobó la Agenda 2030 sobre el Desarrollo Sostenible, una oportunidad para que los países y sus sociedades emprendan un nuevo camino con el que mejorar la vida de todos, sin dejar a nadie atrás. La Agenda cuenta con 17 Objetivos de Desarrollo Sostenible, que incluyen desde la eliminación de la pobreza hasta el combate al cambio climático, la educación, la igualdad de la mujer, la defensa del medio ambiente o el diseño de nuestras ciudades.
+                         En este sitio mostramos la información sobre cuáles son esos objetivos y los esfuerzos que la ONU y sus socios están llevando a cabo para construir un mundo mejor.
+                         Este pequeño blog tiene la misión de poder seguir trabajando y promulgando los ODS en todas las comunidades, mediante publicaciones períodicas, y la participación activa en eventos nacionales y locales.</b>
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'sobre_nosotros' %}" class="btn1" style="color:rgb(255, 255, 255); background-color: rgb(12, 107, 233);">
+                       <b> ¿Cómo surgieron? </b>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row; row d-flex justify-content-end">
+                <div class="col-md-7 col-lg-8 ">
+                  <div class="detail-box">
+                    <h1 style="color:rgb(10, 105, 230); font-family:'Rockwell'">
+                      Objetivos
+                    </h1>
+                    <p style="color:rgb(37, 36, 36); font-family:Modern No.20 ; font-size: 18px;">
+                      <b>Para cumplir con nuestra misión de reducir la mortalidad del cáncer en Argentina es que trabajamos con diversos programas de detección temprana y prevención de la enfermedad; <br>
+                      Actualmente éstos son: </b>
+                      <ul style="color:rgb(36, 34, 34) ; font-family:Modern No.20">
+                        <strong>
+                        <li>Fin de la Pobreza</li>
+                        <li>Hambre Cero</li>
+                        <li>Salud y Bienestar</li>
+                        <li>Educación de Calidad</li>
+                        <li>Igualdad de Género</li>
+                        <li>Agua Limpia y Saneamiento</li>
+                        <li>Energía Asequible y No Contaminante</li>
+                        <li>Trabajo Decente y Crecimiento Económico</li>
+                        <li>Industria, innovación e infraestructura</li>
+                        <li>Reducción de las desigualdades</li>
+                        <li>Ciudades y comunidades sostenibles</li>
+                        <li>Producción y Consumo Responsables</li>
+                        <li>Acción por el Clima</li>
+                        <li>Vida de Ecosistemas Terrestres</li>
+                        <li>Paz, Justicia e instituciones sólidas</li>
+                        <li>Alianzas para lograr los objetivos</li>
+                        </strong>
+                      </ul>
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row; row d-flex justify-content-end">
+                <div class="col-md-7 col-lg-8 ">
+                  <div class="detail-box">
+                    <h1 style="color:rgb(10, 105, 230); font-family:'Rockwell' ">
+                      ¿Cómo puedo contribuir a los ODS?
+                    </h1>
+                    <p style="color:rgb(37, 35, 35); font-family:Modern No.20; font-size: 18px">
+                        <b>Entre muchos/as hacemos la diferencia. Acciones pequeñas en el día a día de las comunidades puede promover y generar un verdadero cambio. Sé protagonista
+                          desde dónde te encuentres, te invitamos a leer los artículos que tenemos publicados, y colaborar en la mejora del mundo.</b>
+
+
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'asociarse' %}" class="btn1" style="color:rgb(255, 255, 255); background-color: rgb(12, 107, 233);">
+                       <b> Asociarse </b>
+                      </a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="container; row d-flex justify-content-center">
+            <ol class="carousel-indicators">
+              <li data-target="#customCarousel1" data-slide-to="0" class="active" ></li>
+              <li data-target="#customCarousel1" data-slide-to="1" ></li>
+              <li data-target="#customCarousel1" data-slide-to="2" ></li>
+            </ol>
+          </div>
+      
+    </div>
+  </div>
+    </section>
+  </div>
+
+ {% include "mision.html" %}
+ <br>
+ <br>
+ {% include "post_preview.html" %}
+
+{% include "footer.html" %}
+
+{% include "scripts.html" %}
+
+</body>
+
+</html>
