@@ -1,0 +1,60 @@
+{% load static %}
+
+{% include "head.html" %}
+
+<!DOCTYPE html>
+<html>
+    
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+         <!-- <a class="navbar-brand" href="index.html">
+            <span style="color:black ; font-family:'Rockwell'">
+              LALCEC
+            <br>
+              Saenz Peña  
+            </span>
+          </a>  -->
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'inicio' %}"><b>INICIO</b> <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'post_list' %}"><b>Publicaciones</b></a>
+              </li>
+              <!--li class="nav-item">
+                <a class="nav-link" href=""><b>CONSULTORIO</b></a>
+              </li-->
+              <li class="nav-item">
+                <a class="nav-link" href="#footer"><b>CONTACTO</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'registro'%}"><b>REGISTRARSE</b></a>
+              </li>   
+              <!--<li class="nav-item">
+                <a class="nav-link" href="book.html">Book Table</a>
+              </li>-->
+              
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href={% url 'perfil' user.id %}> <b>{{user.username}}</b></a>                
+              </li>
+              </ul>  
+              <div class="user_option">
+                <a href="" class="user_link" >  <!--  -->
+              <a class="btn btn-blue" href="{% url 'logout' %}" style="color:white"><b>Cerrar Sesion</b></a>
+              {% else %}
+              <div class="user_option">
+                <a href="" class="user_link" >  <!--  -->
+              <a class="btn btn-blue" href="{% url 'login' %}" style="color:white"><b>Ingresar</b></a>
+              {% endif %}
+              
+    </header>
+    <!-- end header section -->ww
